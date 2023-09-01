@@ -8,7 +8,7 @@ public class TabelaProdutos {
     List<Produto> produtos = new ArrayList<>();
 
     public TabelaProdutos() {
-              n 
+              n
         Produto caneta = new Produto(1, "Caneta BIC", "Caneta BIC na cor azul", 1.99);
         Produto borracha = new Produto(2, "Borracha branca", "Borracha branca comum", 3.99);
         Produto lapis = new Produto(3, "Lápis Faber Castel", "Lápis Faber Castel comum", 2.99);
@@ -45,5 +45,15 @@ public class TabelaProdutos {
         novoProduto.setId(proximoId);
         this.produtos.add(novoProduto);
         return novoProduto;
+    }
+
+    public void atualizarProduto (int produtoId,
+                                        Produto produtoAtualizar) {
+        Produto produtoProcurado = this.buscarProdutoPeloId(produtoId);
+        if (produtoProcurado != null) {
+            produtoProcurado.setNome(produtoAtualizar.getNome());
+            produtoProcurado.setDescricao(produtoAtualizar.getDescricao());
+            produtoProcurado.setValorUnitario(produtoAtualizar.getValorUnitario());
+        }
     }
 }
