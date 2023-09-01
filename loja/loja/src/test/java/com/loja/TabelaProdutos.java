@@ -8,6 +8,7 @@ public class TabelaProdutos {
     List<Produto> produtos = new ArrayList<>();
 
     public TabelaProdutos() {
+              n 
         Produto caneta = new Produto(1, "Caneta BIC", "Caneta BIC na cor azul", 1.99);
         Produto borracha = new Produto(2, "Borracha branca", "Borracha branca comum", 3.99);
         Produto lapis = new Produto(3, "Lápis Faber Castel", "Lápis Faber Castel comum", 2.99);
@@ -32,5 +33,17 @@ public class TabelaProdutos {
             }
         }
         return produtoProcurado;
+    }
+
+    public Produto cadastrarNovoProduto(Produto novoProduto) {
+        // 3 - 1 = 2
+        int ultimoIndex = this.produtos.size() - 1;
+        Produto ultimoProduto = this.produtos.get(ultimoIndex);
+        // 3 + 1 = 4
+        int proximoId = ultimoProduto.getId() + 1;
+
+        novoProduto.setId(proximoId);
+        this.produtos.add(novoProduto);
+        return novoProduto;
     }
 }
